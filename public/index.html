@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cosplay Mania</title>
+    <link rel="stylesheet" href="styles.css"> <!-- Link to the CSS file -->
+</head>
+<body>
+    <div class="container">
+        <h1>Registration Form</h1>
+        <form action="/submit" method="POST" id="registrationForm">
+            <label for="name">Name:</label>
+            <input type="text" id="name" name="name" required>
+
+            <label for="batch">Batch:</label>
+            <div class="radio-group">
+                <label><input type="radio" name="batch" value="Computer Science" required> Computer Science</label>
+                <label><input type="radio" name="batch" value="Electronics and Communication" required> Electronics and Communication</label>
+                <label><input type="radio" name="batch" value="Electrical and Electronics" required> Electrical and Electronics</label>
+                <label><input type="radio" name="batch" value="Electrical" required> Electrical</label>
+                <label><input type="radio" name="batch" value="Civil" required> Civil</label>
+            </div>
+
+            <label for="semester">Semester:</label>
+            <select id="semester" name="semester" required>
+                <option value="">Select Semester</option>
+                <option value="S1">S1</option>
+                <option value="S3">S3</option>
+                <option value="S5">S5</option>
+                <option value="S7">S7</option>
+            </select>
+
+            <label for="email">Email ID:</label>
+            <input type="email" id="email" name="email" required>
+
+            <label for="mobile">Mobile Number:</label>
+            <input type="tel" id="mobile" name="mobile" pattern="[0-9]*" inputmode="numeric" required>
+
+            <div class="button-group">
+                <button type="submit">Submit</button>
+                <button type="reset">Reset</button>
+            </div>
+        </form>
+    </div>
+
+    <footer>
+        <p>&copy; Opera Film Club | Made with love by AVR, KoK</p>
+    </footer>
+
+    <script>
+        document.getElementById('registrationForm').addEventListener('submit', function(event) {
+            const mobileInput = document.getElementById('mobile');
+            const mobileValue = mobileInput.value;
+
+            // Validate mobile number (example: must be exactly 10 digits)
+            if (mobileValue.length !== 10 || isNaN(mobileValue)) {
+                alert('Please enter a valid mobile number with 10 digits.');
+                event.preventDefault(); // Prevent form submission
+                return;
+            }
+        });
+    </script>
+</body>
+</html>
